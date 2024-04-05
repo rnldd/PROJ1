@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class Review extends Game{
     public int reviewID;
     private double beoordelingGameplay;
@@ -6,15 +8,19 @@ class Review extends Game{
     private double beoordelingGemiddeld;
     private String beschrijving;
 
-    public berekenGemiddelde(double beoordelingGameplay, double beoordelingGraphics, double beoordelingStoryline){
+    public Review(ArrayList<Game> alleGenres, String genreGame, String titelGame, double prijsGame, double gameKorting, ArrayList<Review> ReviewsLijst) {
+        super(alleGenres, genreGame, titelGame, prijsGame, gameKorting, ReviewsLijst);
+    }
+
+    public void berekenGemiddelde(double beoordelingGameplay, double beoordelingGraphics, double beoordelingStoryline){
         this.beoordelingGemiddeld = (beoordelingGameplay + beoordelingGraphics + beoordelingStoryline)/3;
     }
 
-    public addGemiddelde(){
+    public void addGemiddelde(){
         //voeg gemiddelde toe
     }
 
-    public addBeoordeling(){
+    public void addBeoordeling(){
         //voeg beoordeling toe
     }
 
