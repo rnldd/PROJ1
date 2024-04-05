@@ -1,4 +1,4 @@
-class Review {
+class Review extends Game{
     public int reviewID;
     private double beoordelingGameplay;
     private double beoordelingGraphics;
@@ -6,15 +6,18 @@ class Review {
     private double beoordelingGemiddeld;
     private String beschrijving;
 
-    public berekenGemiddelde(){
-        // logica voor gemiddelde
+    public berekenGemiddelde(double beoordelingGameplay, double beoordelingGraphics, double beoordelingStoryline){
+        this.beoordelingGemiddeld = (beoordelingGameplay + beoordelingGraphics + beoordelingStoryline)/3;
     }
 
     public addGemiddelde(){
-        //idk
+        //voeg gemiddelde toe
     }
 
     public addBeoordeling(){
-        //idk
+        //voeg beoordeling toe
     }
+
+    //geschreven door?? private String klantID
+    // (get klant id )
 }
