@@ -5,4 +5,16 @@ class Review {
     private double BeoordelingStoryline;
     private double beoordelingGemiddeld;
     private String beschrijving;
+
+    public berekenGemiddelde(){
+        // logica voor gemiddelde
+    }
+
+    public addGemiddelde(){
+        //idk
+    }
+
+    public addBeoordeling(){
+        //idk
+    }
 }
