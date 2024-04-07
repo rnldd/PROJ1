@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Game {
-    private ArrayList <Game> alleGenres;
+    private static ArrayList <Game> alleGenres;
     private String genreGame;
     private String titelGame;
     private double prijsGame;
@@ -17,7 +17,7 @@ public class Game {
         this.reviewsLijst = reviewsLijst;
     }
 
-    public void sorteerReview(ArrayList<Review> reviewsLijst) {
+    public static void sorteerReview(ArrayList<Review> reviewsLijst) {
         // TODO Reviews sorteren
     }
 

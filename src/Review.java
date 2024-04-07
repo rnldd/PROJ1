@@ -7,6 +7,7 @@ class Review extends Game{
     private double BeoordelingStoryline;
     private double beoordelingGemiddeld;
     private String beschrijving;
+    private Klant klant;
 
     public Review(ArrayList<Game> alleGenres, String genreGame, String titelGame, double prijsGame, double gameKorting, ArrayList<Review> ReviewsLijst) {
         super(alleGenres, genreGame, titelGame, prijsGame, gameKorting, ReviewsLijst);
@@ -26,4 +27,11 @@ class Review extends Game{
 
     //geschreven door?? private String klantID
     // (get klant id )
+    public void setKlant(Klant klant) {
+        this.klant = klant;
+    }
+
+    public Klant getKlant() {
+        return klant;
+    }
 }
