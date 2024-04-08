@@ -18,15 +18,16 @@ class Review extends Game{
     }
 
     public void addGemiddelde(){
-        //voeg gemiddelde toe
+        //TODO voeg gemiddelde toe
     }
 
     public void addBeoordeling(){
-        //voeg beoordeling toe
+        //TODO voeg beoordeling toe
     }
 
     //geschreven door?? private String klantID
     // (get klant id )
+    //TODO
     public void setKlant(Klant klant) {
         this.klant = klant;
     }
