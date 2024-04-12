@@ -8,6 +8,7 @@ class Review extends Game{
     private double beoordelingGemiddeld;
     private String beschrijving;
     private Klant klant;
+    private double gemiddelde;
 
     public Review(ArrayList<Game> alleGenres, String genreGame, String titelGame, double prijsGame, double gameKorting, ArrayList<Review> ReviewsLijst) {
         super(alleGenres, genreGame, titelGame, prijsGame, gameKorting, ReviewsLijst);
@@ -17,17 +18,14 @@ class Review extends Game{
         this.beoordelingGemiddeld = (beoordelingGameplay + beoordelingGraphics + beoordelingStoryline)/3;
     }
 
-    public void addGemiddelde(){
-        //TODO voeg gemiddelde toe
+    public void addGemiddelde(double gemiddelde){
+        this.gemiddelde = gemiddelde;
     }
 
     public void addBeoordeling(){
         //TODO voeg beoordeling toe
     }
 
-    //geschreven door?? private String klantID
-    // (get klant id )
-    //TODO
     public void setKlant(Klant klant) {
         this.klant = klant;
     }
