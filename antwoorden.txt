@@ -1,0 +1,8 @@
+Wat is jouw favoriete kleur?
+Rood, Blauw, Groen
+Welke programmeertaal gebruik je het meest?
+Java, Python, C++
+Heb je ervaring met Java?
+Ja, Nee
+Wat is jouw leeftijd?
+open
