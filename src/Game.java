@@ -4,7 +4,6 @@ public class Game {
     private String genreGame;
     private String titelGame;
     private double prijsGame;
-    private double gameKorting;
     private ArrayList<Review>reviewsLijst;
 
     Game(ArrayList<Game> alleGenres, String genreGame, String titelGame,
@@ -13,7 +12,6 @@ public class Game {
         this.genreGame = genreGame;
         this.titelGame = titelGame;
         this.prijsGame = prijsGame;
-        this.gameKorting = gameKorting;
         this.reviewsLijst = reviewsLijst;
     }
 
