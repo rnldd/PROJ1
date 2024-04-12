@@ -1,3 +1,4 @@
 abstract class Gebruiker {
-    private int gebruikersID;
+    private String voornaam;
+    private String achternaam;
 }
