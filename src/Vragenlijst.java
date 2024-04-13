@@ -26,7 +26,7 @@ class Vraag {
     }
 }
 
-class MeerkeuzeVraag extends Vraag {
+class MeerkeuzeVraag {
     private List<String> opties;
 
     public MeerkeuzeVraag(String vraagTekst, List<String> opties) {
@@ -52,7 +52,7 @@ class MeerkeuzeVraag extends Vraag {
     }
 }
 
-class OpenVraag extends Vraag {
+class OpenVraag {
     public OpenVraag(String vraagTekst) {
         super(vraagTekst);
     }
@@ -63,7 +63,7 @@ class OpenVraag extends Vraag {
     }
 }
 
-class ConditioneleVraag extends Vraag {
+class ConditioneleVraag {
     private String conditieOptie;
     private Vraag vervolgVraag;
 

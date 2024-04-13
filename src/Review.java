@@ -1,36 +1,70 @@
 import java.util.ArrayList;
 
-class Review extends Game{
+public class Review {
     public int reviewID;
     private double beoordelingGameplay;
     private double beoordelingGraphics;
-    private double BeoordelingStoryline;
-    private double beoordelingGemiddeld;
+    private double beoordelingStoryline;
+    private double gemiddelde;
     private String beschrijving;
     private Klant klant;
-    private double gemiddelde;
 
-    public Review(ArrayList<Game> alleGenres, String genreGame, String titelGame, double prijsGame, double gameKorting, ArrayList<Review> ReviewsLijst) {
-        super(alleGenres, genreGame, titelGame, prijsGame, gameKorting, ReviewsLijst);
-    }
-
-    public void berekenGemiddelde(double beoordelingGameplay, double beoordelingGraphics, double beoordelingStoryline){
-        this.beoordelingGemiddeld = (beoordelingGameplay + beoordelingGraphics + beoordelingStoryline)/3;
-    }
-
-    public void addGemiddelde(double gemiddelde){
-        this.gemiddelde = gemiddelde;
-    }
-
-    public void addBeoordeling(){
-        //TODO voeg beoordeling toe
-    }
-
-    public void setKlant(Klant klant) {
+    public Review(int reviewID, double beoordelingGameplay, double beoordelingGraphics, double beoordelingStoryline, String beschrijving, Klant klant) {
+        this.reviewID = reviewID;
+        this.beoordelingGameplay = beoordelingGameplay;
+        this.beoordelingGraphics = beoordelingGraphics;
+        this.beoordelingStoryline = beoordelingStoryline;
+        this.beschrijving = beschrijving;
         this.klant = klant;
+        this.berekenGemiddelde();
+    }
+
+    public void berekenGemiddelde() {
+        this.gemiddelde = (this.beoordelingGameplay + this.beoordelingGraphics + this.beoordelingStoryline) / 3;
+    }
+
+    public void addBeoordeling(double beoordelingGameplay, double beoordelingGraphics, double beoordelingStoryline, String beschrijving) {
+        // Update de huidige waarden met de nieuwe beoordelingen en herbereken het gemiddelde
+        this.beoordelingGameplay = beoordelingGameplay;
+        this.beoordelingGraphics = beoordelingGraphics;
+        this.beoordelingStoryline = beoordelingStoryline;
+        this.beschrijving = beschrijving;
+        this.berekenGemiddelde();
+    }
+
+    public int getReviewID() {
+        return reviewID;
+    }
+
+    public double getBeoordelingGameplay() {
+        return beoordelingGameplay;
+    }
+
+    public double getBeoordelingGraphics() {
+        return beoordelingGraphics;
+    }
+
+    public double getBeoordelingStoryline() {
+        return beoordelingStoryline;
+    }
+
+    public double getGemiddelde() {
+        return gemiddelde;
+    }
+
+    public String getBeschrijving() {
+        return beschrijving;
+    }
+
+    public void setBeschrijving(String beschrijving) {
+        this.beschrijving = beschrijving;
     }
 
     public Klant getKlant() {
         return klant;
+    }
+
+    public void setKlant(Klant klant) {
+        this.klant = klant;
     }
 }
