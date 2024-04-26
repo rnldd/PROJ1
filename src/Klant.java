@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 class Klant extends Gebruiker {
+
+    private String klantnaam;
     private ArrayList<Review> geschrevenReviews;
 
     public Klant(int gebruikersID, String klantnaam) {
         super(gebruikersID);
         this.klantnaam = klantnaam;
-        this.geschrevenReviews = new ArrayList<>();
+        this.geschrevenReviews = new ArrayList<Review>();
     }
 
     public void koppelReview(Review review) {
@@ -17,7 +19,7 @@ class Klant extends Gebruiker {
     }
 
     public ArrayList<Review> getGeschrevenReviews() {
-        return new ArrayList<>(this.geschrevenReviews);
+        return this.geschrevenReviews;
     }
 
     public int getKlantID(){
