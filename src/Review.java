@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Review {
     public int reviewID;
     private double beoordelingGameplay;
@@ -9,7 +7,8 @@ public class Review {
     private String beschrijving;
     private Klant klant;
 
-    public Review(int reviewID, double beoordelingGameplay, double beoordelingGraphics, double beoordelingStoryline, String beschrijving, Klant klant) {
+    public Review(int reviewID, double beoordelingGameplay, double beoordelingGraphics,
+                  double beoordelingStoryline, String beschrijving, Klant klant) {
         this.reviewID = reviewID;
         this.beoordelingGameplay = beoordelingGameplay;
         this.beoordelingGraphics = beoordelingGraphics;
@@ -19,33 +18,46 @@ public class Review {
         this.berekenGemiddelde();
     }
 
-    public void berekenGemiddelde() {
-        this.gemiddelde = (this.beoordelingGameplay + this.beoordelingGraphics + this.beoordelingStoryline) / 3;
+    public void berekenGemiddelde(){
+        gemiddelde = (beoordelingGameplay + beoordelingGraphics + beoordelingStoryline) / 3;
     }
 
-    public void addBeoordeling(double beoordelingGameplay, double beoordelingGraphics, double beoordelingStoryline, String beschrijving) {
-        // Update de huidige waarden met de nieuwe beoordelingen en herbereken het gemiddelde
-        this.beoordelingGameplay = beoordelingGameplay;
-        this.beoordelingGraphics = beoordelingGraphics;
-        this.beoordelingStoryline = beoordelingStoryline;
-        this.beschrijving = beschrijving;
-        this.berekenGemiddelde();
+    public void addBeoordeling() {
+        if (klant != null){
+            klant.koppelReview(this);
+        }
     }
 
     public int getReviewID() {
         return reviewID;
     }
 
+    public void setReviewID(int reviewID) {
+        this.reviewID = reviewID;
+    }
+
     public double getBeoordelingGameplay() {
         return beoordelingGameplay;
+    }
+
+    public void setBeoordelingGameplay(double beoordelingGameplay) {
+        this.beoordelingGameplay = beoordelingGameplay;
     }
 
     public double getBeoordelingGraphics() {
         return beoordelingGraphics;
     }
 
+    public void setBeoordelingGraphics(double beoordelingGraphics) {
+        this.beoordelingGraphics = beoordelingGraphics;
+    }
+
     public double getBeoordelingStoryline() {
         return beoordelingStoryline;
+    }
+
+    public void setBeoordelingStoryline(double beoordelingStoryline) {
+        this.beoordelingStoryline = beoordelingStoryline;
     }
 
     public double getGemiddelde() {
