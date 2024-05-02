@@ -5,6 +5,5 @@ public class Antwoordenlijst {
     private String ingevuldeAntwoord;
 
     public void volgendeVraag(){
-
     }
 }

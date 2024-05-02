@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 class Vraag {
-    private String vraagTekst;
+    /*private String vraagTekst;
 
     public Vraag(String vraagTekst) {
         this.vraagTekst = vraagTekst;
@@ -171,5 +171,5 @@ public class Vragenlijst {
     public static void main(String[] args) {
         Enquête enquête = Enquête.leesEnquêteVanBestand("vragen.txt");
         enquête.uitvoeren();
-    }
+    }*/
 }
