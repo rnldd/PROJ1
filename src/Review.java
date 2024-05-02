@@ -18,8 +18,8 @@ public class Review {
         this.berekenGemiddelde();
     }
 
-    public void berekenGemiddelde(){
-        gemiddelde = (beoordelingGameplay + beoordelingGraphics + beoordelingStoryline) / 3;
+    public double berekenGemiddelde(){
+         return gemiddelde = (beoordelingGameplay + beoordelingGraphics + beoordelingStoryline) / 3;
     }
 
     public void addBeoordeling() {
