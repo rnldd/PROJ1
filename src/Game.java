@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
 public class Game {
     private static ArrayList <Game> alleGenres = new ArrayList<>();
     private String genreGame;
@@ -16,11 +19,22 @@ public class Game {
     }
 
     public static void sorteerReviews(ArrayList<Review> reviewsLijst) {
-        // TODO Reviews sorteren
+        // Sorteer de reviews op basis van het gemiddelde
+        Collections.sort(reviewsLijst, new Comparator<Review>() {
+            @Override
+            public int compare(Review review1, Review review2) {
+                // Vergelijk de gemiddelde scores van de reviews
+                // Om in oplopende volgorde te sorteren, gebruik je review1.compareTo(review2)
+                // Om in aflopende volgorde te sorteren, gebruik je review2.compareTo(review1)
+                return Double.compare(review1.getGemiddelde(), review2.getGemiddelde());
+            }
+        });
     }
+    public double addGameKorting(double prijsGame){
+        Scanner scanner = new Scanner(System.in);
+        double ingevoerdeKorting = scanner.nextDouble();
+        return (prijsGame - ingevoerdeKorting);
 
-    public void addGameKorting(double prijsGame){
-        //TODO Korting doen
     }
 
     public void addReview (Review review) {
