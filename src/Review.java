@@ -5,16 +5,17 @@ public class Review {
     private double beoordelingStoryline;
     private double gemiddelde;
     private String beschrijving;
+    private Game game;
     private Klant klant;
 
     public Review(int reviewID, double beoordelingGameplay, double beoordelingGraphics,
-                  double beoordelingStoryline, String beschrijving, Klant klant) {
+                  double beoordelingStoryline, String beschrijving, Game game) {
         this.reviewID = reviewID;
         this.beoordelingGameplay = beoordelingGameplay;
         this.beoordelingGraphics = beoordelingGraphics;
         this.beoordelingStoryline = beoordelingStoryline;
         this.beschrijving = beschrijving;
-        this.klant = klant;
+        this.game = game;
         this.berekenGemiddelde();
     }
 
