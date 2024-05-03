@@ -9,13 +9,11 @@ public class Game {
     private double prijsGame;
     private ArrayList<Review>reviewsLijst;
 
-    Game(ArrayList<Game> alleGenres, String genreGame, String titelGame,
-         double prijsGame, ArrayList<Review>ReviewsLijst) {
-        this.alleGenres = alleGenres;
+    Game(String genreGame, String titelGame,
+         double prijsGame) {
         this.genreGame = genreGame;
         this.titelGame = titelGame;
         this.prijsGame = prijsGame;
-        this.reviewsLijst = new ArrayList<>();
     }
 
     public static void sorteerReviews(ArrayList<Review> reviewsLijst) {
@@ -50,8 +48,8 @@ public class Game {
     }
 
     public void voegBeoordelingToe(double gameplay, double graphics, double storyline, String beschrijving, Klant klant) {
-        Review nieuweReview = new Review(reviewsLijst.size() + 1, gameplay, graphics, storyline, beschrijving, klant);
-        this.addReview(nieuweReview);
+        /*Review nieuweReview = new Review(reviewsLijst.size() + 1, gameplay, graphics, storyline, beschrijving, klant);
+        this.addReview(nieuweReview);*/
     }
 
     public double berekenGemmBeoordeling(){
