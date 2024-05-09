@@ -37,4 +37,8 @@ public class Game {
         }
         return somGemiddelden / aantal;
     }
+
+    public String getTitelGame() {
+        return titelGame;
+    }
 }
