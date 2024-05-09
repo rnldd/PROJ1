@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
-        Menu menu = new Menu();
+        UserManager userManager = new UserManager();
+        Security security = new Security(userManager);
+        Menu menu = new Menu(security);
     }
 }
