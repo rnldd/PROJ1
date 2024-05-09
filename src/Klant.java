@@ -7,9 +7,10 @@ public class Klant {
         this.geschrevenReviews = new ArrayList<>();
     }
     public void schrijfReview(){
-
+        //TODO
     }
     public void toonReviews(){
+        //TODO
     }
 }
 
