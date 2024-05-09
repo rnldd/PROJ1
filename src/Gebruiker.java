@@ -2,6 +2,9 @@ abstract class Gebruiker {
     private int gebruikersID;
     private String naam;
 
+    private String gebruikersnaam;
+    private String wachtwoord;
+
     public Gebruiker(int gebruikersID) {
         this.gebruikersID = gebruikersID;
     }
@@ -16,11 +19,19 @@ abstract class Gebruiker {
     public static void toonUitverkoop(){
         //TODO TOON UIOTVERKOPEN
     }
+    public int getGebruikersID() {
+        return gebruikersID;
+    }
+
     public String getNaam() {
         return naam;
     }
 
-    public int getGebruikersID() {
-        return gebruikersID;
+    public String getGebruikersnaam() {
+        return gebruikersnaam;
+    }
+
+    public String getWachtwoord() {
+        return wachtwoord;
     }
 }
