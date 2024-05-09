@@ -9,14 +9,30 @@ public class Main {
         System.out.println("1. Inloggen");
         System.out.println("2. Registreren");
         String keuze;
-        keuze = scanner.nextLine();
         Gebruiker ingelogd = null;
-        if (keuze.equals("1")) {
-            ingelogd = security.login();
+        boolean bIngelogd = false;
+
+        while (!bIngelogd) {
+            keuze = scanner.nextLine();  // Move this inside the while loop to get new input each time
+
+            if (keuze.equals("1")) {
+                ingelogd = security.login();
+                if (ingelogd != null) {
+                    bIngelogd = true;
+                } else {
+                    System.out.println("Login mislukt, probeer het opnieuw of registreer.");
+                }
+            } else if (keuze.equals("2")) {
+                security.RegistreerKlant();
+                System.out.println("Geregistreerd. Probeer nu in te loggen.");
+            } else {
+                System.out.println("Ongeldige keuze, probeer opnieuw.");
+            }
         }
-        if(keuze.equals("2")){
-            security.RegistreerKlant();
+
+        if (bIngelogd && ingelogd != null) {
+            Menu menu = new Menu(ingelogd, security);
+            menu.startMenu();
         }
-        Menu menu = new Menu(ingelogd, security);
     }
 }

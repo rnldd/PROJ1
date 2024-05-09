@@ -14,7 +14,8 @@ class Gebruiker {
     }
 
     public Gebruiker(String gebruikersnaam, String wachtwoord) {
-
+        this.gebruikersnaam = gebruikersnaam;
+        this.wachtwoord = wachtwoord;
     }
 
     public static void toonRanglijst(){

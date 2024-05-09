@@ -35,7 +35,7 @@ public class Security {
     }
 
     public void RegistreerKlant(){
-        new Gebruiker("Test", "Test");
+        addGebruiker(new Gebruiker("test", "test"));
     }
 
     public ArrayList<Gebruiker> getGebruikers() {
