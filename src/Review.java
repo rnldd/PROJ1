@@ -9,6 +9,7 @@ public class Review {
     private String beschrijving;
     private Klant klant;
     private Scanner scanner;
+    private Vragenlijst vragenlijst = new Vragenlijst();
 
     public Review(int reviewID, double beoordelingGameplay, double beoordelingGraphics,
                   double beoordelingStoryline, String beschrijving, Klant klant) {
@@ -43,7 +44,7 @@ public class Review {
 
     private void toonVragenlijst() {
         System.out.println("Vragenlijst wordt gestart...");
-        // TODO vragenlijst starten
+        vragenlijst.vraagInvullen();
     }
 }
 
