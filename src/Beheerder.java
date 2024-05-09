@@ -5,7 +5,6 @@ public class Beheerder extends Gebruiker {
         this.game = game;
     }
     public void pasPrijsAan(double nieuwePrijs) {
-        //TODO pas dde prijs van de game aan :D
         game.setPrijsGame(nieuwePrijs);
     }
 }
