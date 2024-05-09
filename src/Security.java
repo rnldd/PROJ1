@@ -33,6 +33,11 @@ public class Security {
     public void logUit(){
         ingelogd = false;
     }
+
+    public void RegistreerKlant(){
+        new Gebruiker("Test", "Test");
+    }
+
     public ArrayList<Gebruiker> getGebruikers() {
         return userManager.getGebruikers();
     }

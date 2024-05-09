@@ -1,4 +1,4 @@
-abstract class Gebruiker {
+class Gebruiker {
     private int gebruikersID;
     private String naam;
 
@@ -11,6 +11,10 @@ abstract class Gebruiker {
 
     public Gebruiker(String naam){
         this.naam = naam;
+    }
+
+    public Gebruiker(String gebruikersnaam, String wachtwoord) {
+
     }
 
     public static void toonRanglijst(){
