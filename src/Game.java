@@ -16,6 +16,10 @@ public class Game {
         this.prijsGame = prijsGame;
     }
 
+    public double getPrijsGame() {
+        return prijsGame;
+    }
+
     public void addReview(Review review) {
         reviewsLijst.add(review);
     }
