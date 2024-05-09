@@ -20,6 +20,10 @@ public class Game {
         return prijsGame;
     }
 
+    public void setPrijsGame(double prijsGame) {
+        this.prijsGame = prijsGame;
+    }
+
     public void addReview(Review review) {
         reviewsLijst.add(review);
     }

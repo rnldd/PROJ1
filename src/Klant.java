@@ -10,6 +10,7 @@ public class Klant {
 
     }
     public void toonReviews(){
+
     }
 }
 
