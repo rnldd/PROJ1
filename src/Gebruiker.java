@@ -1,11 +1,25 @@
 abstract class Gebruiker {
-    protected int gebruikersID;
+    private int gebruikersID;
+    private String naam;
 
     public Gebruiker(int gebruikersID) {
         this.gebruikersID = gebruikersID;
     }
 
-    // Aangenomen dat subklassen van Gebruiker een methode nodig hebben om hun ID op te halen
+    public Gebruiker(String naam){
+        this.naam = naam;
+    }
+
+    public static void toonRanglijst(){
+        //TODO SHOW DE RANG LIJST l:DDDD ;OLLKOLOLOL
+    }
+    public static void toonUitverkoop(){
+        //TODO TOON UIOTVERKOPEN
+    }
+    public String getNaam() {
+        return naam;
+    }
+
     public int getGebruikersID() {
         return gebruikersID;
     }

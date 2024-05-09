@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Antwoordenlijst {
+public class Vragenlijst {
     private ArrayList<Vraag> lijstMetVragen;
     private String ingevuldeAntwoord;
     private int huidigeVraagIndex; // Deze index houdt bij welke vraag momenteel wordt getoond
