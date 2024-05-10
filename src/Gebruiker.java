@@ -1,7 +1,6 @@
 class Gebruiker {
     private int gebruikersID;
     private String naam;
-
     private String gebruikersnaam;
     private String wachtwoord;
 
@@ -18,8 +17,8 @@ class Gebruiker {
         this.wachtwoord = wachtwoord;
     }
 
-    public static void toonRanglijst(){
-        //TODO SHOW DE RANG LIJST l:DDDD ;OLLKOLOLOL
+    public static void toonRanglijst() {
+        Review.Ranglijst();
     }
     public static void toonUitverkoop(){
         //TODO TOON UIOTVERKOPEN
