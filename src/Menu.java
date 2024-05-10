@@ -95,8 +95,7 @@ class Menu {
         String invoerW = keyboard.nextLine();
         String[] werkuren = invoerW.split(",");
 
-        security.getGebruikers().add(new Dietist(email, voornaam, achternaam, telefoonnummer, licentienummer, kwalificaties, werkuren,
-                gebruikersnaam, wachtwoord));
+        security.getGebruikers().add(new Beheerder()));
     }
 
     public void printStartMenu() {
