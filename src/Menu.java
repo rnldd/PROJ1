@@ -1,45 +1,136 @@
 import java.util.Scanner;
-
-public class Menu {
-    Scanner scanner = new Scanner(System.in);
-
-    Gebruiker ingelogd;
-    Security security;
-
-    Menu(Gebruiker ingelogd, Security security){
-        ingelogd = ingelogd;
-        this.security = security;
-    }
-
-    public void startMenu() {
-
-        String ranglijst = "1";
-        String uitverkoop = "2";
-        String logout = "0";
-
-        boolean startMenu = true;
+class Menu {
+    private boolean startMenu = true;
+    private transient final Scanner keyboard = new Scanner(System.in);
+    public void startMenu(Security security) {
         while (startMenu) {
-            printStartmenu();
 
-            String keuze;
-            keuze = scanner.nextLine();
+            printStartMenu();
 
-            if(keuze.equals(ranglijst)){
-                Gebruiker.toonRanglijst();
-            }
-            if(keuze.equals(uitverkoop)){
-                Gebruiker.toonUitverkoop();
-            }
-            if(keuze.equals(logout)){
-                security.logUit();
-                startMenu = false;
+            final String login = "1";
+            final String registreerBeheerder = "2";
+            final String stopProgramma = "0";
+
+            String input = keyboard.nextLine();
+
+            switch (input) {
+                case login -> {
+                    Gebruiker gebruikersType = security.login();
+                    if (gebruikersType instanceof Beheerder) {
+                        beheerderMenu(security, (Beheerder) gebruikersType);
+                    }
+                    if (gebruikersType instanceof Klant) {
+                        klantMenu(security, (Klant) gebruikersType);
+                    }
+                }
+                case registreerBeheerder -> registreerBeheerder(security);
+                case stopProgramma -> {
+                    System.out.println("Het programma wordt beeindigd.");
+                    startMenu = false;
+                }
             }
         }
     }
 
-    private void printStartmenu() {
-        System.out.println("1. Bekijk de ranglijst");
-        System.out.println("2. Bekijk wat er in de uitverkoop is");
-        System.out.println("0. Log uit");
+    public void beheerderMenu(Security security, Beheerder ingelogdeDietist) {
+
+        boolean dietistMenu = true;
+
+        while (dietistMenu) {
+
+            printBeheerderMenu();
+
+            final String terug = "0";
+
+            String input = keyboard.nextLine();
+            if (input.equals(terug)) {
+                security.logUit();
+                dietistMenu = false;
+            }
+        }
+    }
+
+    public void klantMenu(Security security, Klant ingelogdeKlant) {
+
+        boolean klantMenu = true;
+
+
+        while (klantMenu) {
+
+            printKlantMenu();
+
+            final String terug = "0";
+
+
+
+            switch (keyboard.nextLine()) {
+                case terug: {
+                    security.logUit();
+                    klantMenu = false;
+                }
+            }
+        }
+    }
+
+    public void registreerBeheerder(Security security) {
+        System.out.println("Wat is uw voornaam?");
+        String voornaam = keyboard.nextLine();
+        System.out.println("Wat is uw achternaam?");
+        String achternaam = keyboard.nextLine();
+        System.out.println("Wat is uw email-adres?");
+        String email = keyboard.nextLine();
+        System.out.println("Wat is uw telefoonnummer?");
+        String telefoonnummer = keyboard.nextLine();
+        System.out.println("Stel uw gebruikersnaam in.");
+        String gebruikersnaam = keyboard.nextLine();
+        System.out.println("Stel uw wachtwoord in.");
+        String wachtwoord = keyboard.nextLine();
+        System.out.println("Wat is uw licentienummer?");
+        int licentienummer = keyboard.nextInt();
+        keyboard.nextLine();
+        System.out.println("Voer uw kwalificaties in, gescheiden door spaties.");
+        String invoerK = keyboard.nextLine();
+        String[] kwalificaties = invoerK.split(" ");
+        System.out.println("Voer uw werkuren per dag in gescheiden door kommas. (Maandag: 9-5,Dinsdag: 9-12,enzovoort)");
+        String invoerW = keyboard.nextLine();
+        String[] werkuren = invoerW.split(",");
+
+        security.getGebruikers().add(new Dietist(email, voornaam, achternaam, telefoonnummer, licentienummer, kwalificaties, werkuren,
+                gebruikersnaam, wachtwoord));
+    }
+
+    public void printStartMenu() {
+        System.out.println("Voer 1 in om in te loggen.");
+        System.out.println("Voer 2 in om je te registeren.");
+        System.out.println("Voer 0 in om het programma te stoppen.");
+    }
+
+    public void printBeheerderMenu() {
+        System.out.println("x");
+        System.out.println("Voer 0 in om terug te gaan naar het startmenu.");
+    }
+
+    public void printKlantMenu() {
+        System.out.println("x");
+        System.out.println("Voer 0 in om het programma te beeindigen.");
+    }
+
+    public Klant vindKlant(Security security, String maakPlanTekst) {
+        while (true) {
+            System.out.println(maakPlanTekst);
+            String klantnaam = keyboard.nextLine();
+
+            if (klantnaam.equals("0")) {
+                return null;
+            }
+
+            for (Gebruiker gebruiker : security.getGebruikers()) {
+                if ((gebruiker.getVoornaam() + " " + gebruiker.getAchternaam()).equals(klantnaam) && gebruiker instanceof Klant) {
+                    return (Klant) gebruiker;
+                }
+            }
+
+            System.out.println("Klant is niet gevonden, probeer het opnieuw of voer 0 in om terug te gaan.");
+        }
     }
 }

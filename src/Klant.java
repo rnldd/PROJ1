@@ -20,9 +20,9 @@ public class Klant extends Gebruiker{
         System.out.print("Beschrijving van de review: ");
         String beschrijving = scanner.nextLine();
 
-        /*Review review = new Review(geschrevenReviews.size() + 1, gameplayBeoordeling, graphicsBeoordeling, storylineBeoordeling, beschrijving, this, game);
+        Review review = new Review(geschrevenReviews.size() + 1, gameplayBeoordeling, graphicsBeoordeling, storylineBeoordeling, beschrijving, this, game);
         geschrevenReviews.add(review);
-        game.addReview(review);*/
+        game.addReview(review);
     }
     public void toonReviews(){
         // TODO deze methode

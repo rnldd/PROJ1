@@ -12,7 +12,7 @@ public class Review {
     private Vragenlijst vragenlijst = new Vragenlijst();
 
     public Review(int reviewID, double beoordelingGameplay, double beoordelingGraphics,
-                  double beoordelingStoryline, String beschrijving, Klant klant) {
+                  double beoordelingStoryline, String beschrijving, Klant klant, Game game) {
         this.reviewID = reviewID;
         this.beoordelingGameplay = beoordelingGameplay;
         this.beoordelingGraphics = beoordelingGraphics;
