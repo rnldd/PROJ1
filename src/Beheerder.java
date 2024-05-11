@@ -6,6 +6,9 @@ public class Beheerder extends Gebruiker {
         super(gebruikersID);
         this.game = game;
     }
+    public Beheerder(String gebruikersnaam, String wachtwoord){
+        super(gebruikersnaam,wachtwoord);
+    }
     public void pasPrijsAan(double nieuwePrijs) {
         System.out.println("Wat is de nieuwe prijs?");
         game.setPrijsGame(nieuwePrijs);

@@ -8,6 +8,10 @@ public class Klant extends Gebruiker{
         super(naam);
         this.geschrevenReviews = new ArrayList<>();
     }
+    public Klant(String gebruikersnaam, String wachtwoord){
+        super(gebruikersnaam,wachtwoord);
+    }
+
     public void schrijfReview(Game game, Scanner scanner){
         System.out.println("Schrijf je review voor: " + game.getTitelGame());
         System.out.print("Gameplay beoordeling (1-10): ");

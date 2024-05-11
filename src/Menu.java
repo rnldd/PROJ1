@@ -23,7 +23,7 @@ class Menu {
                         klantMenu(security, (Klant) gebruikersType);
                     }
                 }
-                case registreerBeheerder -> registreerBeheerder(security);
+                case registreerBeheerder -> registreerGebruiker(security);
                 case stopProgramma -> {
                     System.out.println("Het programma wordt beeindigd.");
                     startMenu = false;
@@ -34,18 +34,19 @@ class Menu {
 
     public void beheerderMenu(Security security, Beheerder ingelogdeDietist) {
 
-        boolean dietistMenu = true;
+        boolean beheerderMenu = true;
 
-        while (dietistMenu) {
+        while (beheerderMenu) {
 
             printBeheerderMenu();
 
             final String terug = "0";
 
-            String input = keyboard.nextLine();
-            if (input.equals(terug)) {
-                security.logUit();
-                dietistMenu = false;
+            switch (keyboard.nextLine()) {
+                case terug: {
+                    security.logUit();
+                    beheerderMenu = false;
+                }
             }
         }
     }
@@ -61,8 +62,6 @@ class Menu {
 
             final String terug = "0";
 
-
-
             switch (keyboard.nextLine()) {
                 case terug: {
                     security.logUit();
@@ -72,30 +71,19 @@ class Menu {
         }
     }
 
-    public void registreerBeheerder(Security security) {
-        System.out.println("Wat is uw voornaam?");
-        String voornaam = keyboard.nextLine();
-        System.out.println("Wat is uw achternaam?");
-        String achternaam = keyboard.nextLine();
-        System.out.println("Wat is uw email-adres?");
-        String email = keyboard.nextLine();
-        System.out.println("Wat is uw telefoonnummer?");
-        String telefoonnummer = keyboard.nextLine();
-        System.out.println("Stel uw gebruikersnaam in.");
+    public void registreerGebruiker(Security security) {
+        System.out.println("klant of beheerder?");
+        String gebruiker = keyboard.nextLine();
+        System.out.println("gebruikersnaam?");
         String gebruikersnaam = keyboard.nextLine();
-        System.out.println("Stel uw wachtwoord in.");
+        System.out.println("wachtwoord?");
         String wachtwoord = keyboard.nextLine();
-        System.out.println("Wat is uw licentienummer?");
-        int licentienummer = keyboard.nextInt();
-        keyboard.nextLine();
-        System.out.println("Voer uw kwalificaties in, gescheiden door spaties.");
-        String invoerK = keyboard.nextLine();
-        String[] kwalificaties = invoerK.split(" ");
-        System.out.println("Voer uw werkuren per dag in gescheiden door kommas. (Maandag: 9-5,Dinsdag: 9-12,enzovoort)");
-        String invoerW = keyboard.nextLine();
-        String[] werkuren = invoerW.split(",");
-
-        security.getGebruikers().add(new Beheerder()));
+        if(gebruiker.equals("Klant")){
+            security.getGebruikers().add(new Beheerder(gebruikersnaam,wachtwoord));
+        }
+        if(gebruiker.equals("Beheerder")){
+            security.getGebruikers().add(new Klant(gebruikersnaam,wachtwoord));
+        }
     }
 
     public void printStartMenu() {
@@ -124,7 +112,7 @@ class Menu {
             }
 
             for (Gebruiker gebruiker : security.getGebruikers()) {
-                if ((gebruiker.getVoornaam() + " " + gebruiker.getAchternaam()).equals(klantnaam) && gebruiker instanceof Klant) {
+                if ((gebruiker.getNaam().equals(klantnaam) && gebruiker instanceof Klant)){
                     return (Klant) gebruiker;
                 }
             }
