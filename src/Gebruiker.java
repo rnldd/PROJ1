@@ -17,10 +17,10 @@ class Gebruiker {
         this.wachtwoord = wachtwoord;
     }
 
-    public static void toonRanglijst() {
+    public  void toonRanglijst() {
         Review.Ranglijst();
     }
-    public static void toonUitverkoop(){
+    public  void toonUitverkoop(){
         //TODO TOON UIOTVERKOPEN
     }
     public int getGebruikersID() {

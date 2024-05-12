@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class Beheerder extends Gebruiker {
+
+    Scanner scanner = new Scanner(System.in);
     public Game game;
     public Beheerder(int gebruikersID, Game game) {
         super(gebruikersID);
@@ -9,8 +11,10 @@ public class Beheerder extends Gebruiker {
     public Beheerder(String gebruikersnaam, String wachtwoord){
         super(gebruikersnaam,wachtwoord);
     }
-    public void pasPrijsAan(double nieuwePrijs) {
+    public void pasPrijsAan() {
         System.out.println("Wat is de nieuwe prijs?");
+        double nieuwePrijs = scanner.nextDouble();
+        scanner.next();
         game.setPrijsGame(nieuwePrijs);
         System.out.println("De prijs is nu: €" + nieuwePrijs + ".");
     }
