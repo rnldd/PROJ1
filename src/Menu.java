@@ -32,7 +32,7 @@ class Menu {
         }
     }
 
-    public void beheerderMenu(Security security, Beheerder ingelogdeDietist) {
+    public void beheerderMenu(Security security, Beheerder gebruikersType) {
 
         boolean beheerderMenu = true;
 

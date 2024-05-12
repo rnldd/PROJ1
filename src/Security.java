@@ -26,7 +26,7 @@ public class Security {
         }
         if(!ingelogd){
             System.out.println("De ingevoerde gebruikersnaam of wachtwoord is incorrect, of u bent niet geregistreerd in ons systeem.");
-            System.out.println("Registreer uzelf als dietist (indien u dit natuurlijk bent), of vraag uw dietist u te registreren als klant.");
+            System.out.println("Registreer uzelf als beheerder (indien u dit natuurlijk bent)");
         }
         return null;
     }
