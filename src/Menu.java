@@ -78,10 +78,10 @@ class Menu {
         String gebruikersnaam = keyboard.nextLine();
         System.out.println("wachtwoord?");
         String wachtwoord = keyboard.nextLine();
-        if(gebruiker.equals("Klant")){
+        if(gebruiker.equalsIgnoreCase("Klant")){
             security.getGebruikers().add(new Beheerder(gebruikersnaam,wachtwoord));
         }
-        if(gebruiker.equals("Beheerder")){
+        if(gebruiker.equalsIgnoreCase("Beheerder")){
             security.getGebruikers().add(new Klant(gebruikersnaam,wachtwoord));
         }
     }
