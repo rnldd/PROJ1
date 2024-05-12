@@ -3,31 +3,36 @@ import java.util.Scanner;
 
 public class Klant extends Gebruiker{
     private ArrayList<Review> geschrevenReviews;
+    private Scanner scanner;
 
     public Klant(String naam) {
         super(naam);
         this.geschrevenReviews = new ArrayList<>();
+        this.scanner = new Scanner(System.in);
     }
     public Klant(String gebruikersnaam, String wachtwoord){
-        super(gebruikersnaam,wachtwoord);
+        super(gebruikersnaam, wachtwoord);
+        this.geschrevenReviews = new ArrayList<>();
+        this.scanner = new Scanner(System.in);
     }
 
-    public void schrijfReview(Game game, Scanner scanner){
-        System.out.println("Schrijf je review voor: " + game.getTitelGame());
-        System.out.print("Gameplay beoordeling (1-10): ");
-        double gameplayBeoordeling = scanner.nextDouble();
-        System.out.print("Graphics beoordeling (1-10): ");
-        double graphicsBeoordeling = scanner.nextDouble();
-        System.out.print("Storyline beoordeling (1-10): ");
-        double storylineBeoordeling = scanner.nextDouble();
-        scanner.nextLine();
-        System.out.print("Beschrijving van de review: ");
-        String beschrijving = scanner.nextLine();
+    public void schrijfReview(Game game){
+            System.out.println("Schrijf je review voor: " + game.getTitelGame());
+            System.out.print("Gameplay beoordeling (1-10): ");
+            double gameplayBeoordeling = scanner.nextDouble();
+            System.out.print("Graphics beoordeling (1-10): ");
+            double graphicsBeoordeling = scanner.nextDouble();
+            System.out.print("Storyline beoordeling (1-10): ");
+            double storylineBeoordeling = scanner.nextDouble();
+            scanner.nextLine();
+            System.out.print("Beschrijving van de review: ");
+            String beschrijving = scanner.nextLine();
 
-        Review review = new Review(geschrevenReviews.size() + 1, gameplayBeoordeling, graphicsBeoordeling, storylineBeoordeling, beschrijving, this, game);
-        geschrevenReviews.add(review);
-        game.addReview(review);
+            Review review = new Review(geschrevenReviews.size() + 1, gameplayBeoordeling, graphicsBeoordeling, storylineBeoordeling, beschrijving, this, game);
+            geschrevenReviews.add(review);
+            game.addReview(review);
     }
+
     public void toonReviews(){
         if (geschrevenReviews.isEmpty()) {
             System.out.println("Er zijn geen reviews geschreven.");
