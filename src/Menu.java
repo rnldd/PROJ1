@@ -32,7 +32,7 @@ class Menu {
         }
     }
 
-    public void beheerderMenu(Security security, Beheerder gebruikersType) {
+    public void beheerderMenu(Security security, Beheerder ingelogdeBeheerder) {
 
         boolean beheerderMenu = true;
 
@@ -41,8 +41,24 @@ class Menu {
             printBeheerderMenu();
 
             final String terug = "0";
+            final String ranglijst = "1";
+            final String uitverkoop = "2";
+            final String toonreview = "3";
+            final String voegkortingtoe = "4";
 
             switch (keyboard.nextLine()) {
+                case ranglijst: {
+                    ingelogdeBeheerder.toonRanglijst();
+                }
+                case uitverkoop: {
+                    ingelogdeBeheerder.toonUitverkoop();
+                }
+                case toonreview: {
+                    ingelogdeBeheerder.toonReviews();
+                }
+                case voegkortingtoe: {
+                    ingelogdeBeheerder.pasPrijsAan();
+                }
                 case terug: {
                     security.logUit();
                     beheerderMenu = false;
@@ -60,9 +76,25 @@ class Menu {
 
             printKlantMenu();
 
+            final String ranglijst = "1";
+            final String uitverkoop = "2";
+            final String maakreview = "3";
+            final String toonreview = "4";
             final String terug = "0";
 
             switch (keyboard.nextLine()) {
+                case ranglijst: {
+                    ingelogdeKlant.toonRanglijst();
+                }
+                case uitverkoop: {
+                    ingelogdeKlant.toonUitverkoop();
+                }
+                case maakreview: {
+                    ingelogdeKlant.schrijfReview();
+                }
+                case toonreview: {
+                    ingelogdeKlant.toonReviews();
+                }
                 case terug: {
                     security.logUit();
                     klantMenu = false;
@@ -72,17 +104,17 @@ class Menu {
     }
 
     public void registreerGebruiker(Security security) {
-        System.out.println("klant of beheerder?");
+        System.out.println("Bent u een klant of een beheerder?");
         String gebruiker = keyboard.nextLine();
         System.out.println("gebruikersnaam?");
         String gebruikersnaam = keyboard.nextLine();
         System.out.println("wachtwoord?");
         String wachtwoord = keyboard.nextLine();
-        if(gebruiker.equalsIgnoreCase("Klant")){
-            security.getGebruikers().add(new Beheerder(gebruikersnaam,wachtwoord));
+        if (gebruiker.equalsIgnoreCase("Klant")) {
+            security.getGebruikers().add(new Klant(gebruikersnaam, wachtwoord));
         }
-        if(gebruiker.equalsIgnoreCase("Beheerder")){
-            security.getGebruikers().add(new Klant(gebruikersnaam,wachtwoord));
+        if (gebruiker.equalsIgnoreCase("Beheerder")) {
+            security.getGebruikers().add(new Beheerder(gebruikersnaam, wachtwoord));
         }
     }
 
@@ -93,12 +125,18 @@ class Menu {
     }
 
     public void printBeheerderMenu() {
-        System.out.println("x");
+        System.out.println("Voer 1 in om de ranglijst te bekijken");
+        System.out.println("Voer 2 in om de uitverkoop te bekijken");
+        System.out.println("Voer 3 in om reviews te bekijken.");
+        System.out.println("Voer 4 in om korting toe te voegen.");
         System.out.println("Voer 0 in om terug te gaan naar het startmenu.");
     }
 
     public void printKlantMenu() {
-        System.out.println("x");
+        System.out.println("Voer 1 in om de ranglijst te bekijken");
+        System.out.println("Voer 2 in om de uitverkoop te bekijken");
+        System.out.println("Voer 3 in om een review achter te laten");
+        System.out.println("Voer 4 in om reviews te bekijken.");
         System.out.println("Voer 0 in om het programma te beeindigen.");
     }
 

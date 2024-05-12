@@ -16,7 +16,8 @@ public class Klant extends Gebruiker{
         this.scanner = new Scanner(System.in);
     }
 
-    public void schrijfReview(Game game){
+    public void schrijfReview(){
+        //TODO ZOEK GAME. en doe
             System.out.println("Schrijf je review voor: " + game.getTitelGame());
             System.out.print("Gameplay beoordeling (1-10): ");
             double gameplayBeoordeling = scanner.nextDouble();
