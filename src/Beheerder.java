@@ -18,4 +18,13 @@ public class Beheerder extends Gebruiker {
         game.setPrijsGame(nieuwePrijs);
         System.out.println("De prijs is nu: €" + nieuwePrijs + ".");
     }
+
+    public void toonAlleReviews() {
+        if (game == null) {
+            System.out.println("Geen game gekoppeld aan deze beheerder.");
+            return;
+        }
+
+        game.toonAlleReviews();
+    }
 }

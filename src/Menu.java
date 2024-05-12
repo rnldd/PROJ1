@@ -49,19 +49,25 @@ class Menu {
             switch (keyboard.nextLine()) {
                 case ranglijst: {
                     ingelogdeBeheerder.toonRanglijst();
+                    break;
                 }
                 case uitverkoop: {
                     ingelogdeBeheerder.toonUitverkoop();
+                    break;
                 }
                 case toonreview: {
-                    ingelogdeBeheerder.toonReviews();
+                    ingelogdeBeheerder.toonAlleReviews();
+                    break;
                 }
                 case voegkortingtoe: {
                     ingelogdeBeheerder.pasPrijsAan();
+                    break;
                 }
                 case terug: {
                     security.logUit();
                     beheerderMenu = false;
+                    break;
+
                 }
             }
         }
@@ -90,7 +96,7 @@ class Menu {
                     ingelogdeKlant.toonUitverkoop();
                 }
                 case maakreview: {
-                    ingelogdeKlant.schrijfReview();
+//                    ingelogdeKlant.schrijfReview();
                 }
                 case toonreview: {
                     ingelogdeKlant.toonReviews();
