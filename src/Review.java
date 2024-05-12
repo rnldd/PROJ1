@@ -89,6 +89,10 @@ public class Review {
     public Game getGame() {
         return game;
     }
+
+    public int getReviewID() {
+        return reviewID;
+    }
 }
 
 

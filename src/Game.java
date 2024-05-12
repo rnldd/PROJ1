@@ -16,20 +16,14 @@ public class Game {
         this.prijsGame = prijsGame;
     }
 
-    public double getPrijsGame() {
-        return prijsGame;
-    }
-
-    public void setPrijsGame(double prijsGame) {
-        this.prijsGame = prijsGame;
-    }
-
     public void addReview(Review review) {
         reviewsLijst.add(review);
+        this.berekenGemiddelde(); // Update gemiddelde na toevoegen review
     }
 
     public void verwijderReview(Review review){
         reviewsLijst.remove(review);
+        this.berekenGemiddelde(); // Update gemiddelde na verwijderen review
     }
 
     public double berekenGemiddelde() {
@@ -42,6 +36,31 @@ public class Game {
         return somGemiddelden / aantal;
     }
 
+    public void toonAlleReviews(){
+        if (reviewsLijst.isEmpty()) {
+            System.out.println("Er zijn nog geen reviews voor " + titelGame + ".");
+            return;
+        }
+        System.out.println("Reviews voor " + titelGame + ":");
+        for (Review review : reviewsLijst) {
+            System.out.println("Review ID: " + review.getReviewID());
+            System.out.println("Review geschreven door: " + review.getKlant().getNaam());
+            System.out.println("Beoordeling Gameplay: " + review.getBeoordelingGameplay());
+            System.out.println("Beoordeling Graphics: " + review.getBeoordelingGraphics());
+            System.out.println("Beoordeling Storyline: " + review.getBeoordelingStoryline());
+            System.out.printf("Gemiddelde beoordeling: %.2f\n", review.getGemiddelde());
+            System.out.println("Beschrijving: " + review.getBeschrijving());
+            System.out.println();
+        }
+
+    }
+
+    public double getPrijsGame() {
+        return prijsGame;
+    }
+    public void setPrijsGame(double prijsGame) {
+        this.prijsGame = prijsGame;
+    }
     public String getTitelGame() {
         return titelGame;
     }
