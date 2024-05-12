@@ -4,6 +4,7 @@ public class Review {
     private static List<Review> alleReviews = new ArrayList<>();
 
     public int reviewID;
+
     private double beoordelingGameplay;
     private double beoordelingGraphics;
     private double beoordelingStoryline;
@@ -29,10 +30,6 @@ public class Review {
 
     public double berekenGemiddelde(){
          return gemiddelde = (beoordelingGameplay + beoordelingGraphics + beoordelingStoryline) / 3;
-    }
-
-    public double getGemiddelde() {
-        return gemiddelde;
     }
 
     private void vraagOverVragenlijst() {
@@ -64,6 +61,35 @@ public class Review {
         System.out.println("Vragenlijst wordt gestart...");
         vragenlijst.vraagInvullen();
     }
+
+    public double getBeoordelingGameplay() {
+        return beoordelingGameplay;
+    }
+
+    public double getBeoordelingGraphics() {
+        return beoordelingGraphics;
+    }
+
+    public double getBeoordelingStoryline() {
+        return beoordelingStoryline;
+    }
+
+    public Klant getKlant() {
+        return klant;
+    }
+
+    public String getBeschrijving() {
+        return beschrijving;
+    }
+
+    public double getGemiddelde() {
+        return gemiddelde;
+    }
+
+    public Game getGame() {
+        return game;
+    }
 }
+
 
 

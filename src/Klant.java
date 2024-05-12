@@ -29,7 +29,21 @@ public class Klant extends Gebruiker{
         game.addReview(review);
     }
     public void toonReviews(){
-        // TODO deze methode
+        if (geschrevenReviews.isEmpty()) {
+            System.out.println("Er zijn geen reviews geschreven.");
+            return;
+        }
+
+        for (Review review : geschrevenReviews) {
+            System.out.println("Review geschreven door: " + review.getKlant());
+            System.out.println("Game: " + review.getGame().getTitelGame());
+            System.out.println("Beoordeling Gameplay: " + review.getBeoordelingGameplay());
+            System.out.println("Beoordeling Graphics: " + review.getBeoordelingGraphics());
+            System.out.println("Beoordeling Storyline: " + review.getBeoordelingStoryline());
+            System.out.println("Gemiddelde beoordeling: " + review.getGemiddelde());
+            System.out.println("Beschrijving: " + review.getBeschrijving());
+            System.out.println();
+        }
     }
 }
 
